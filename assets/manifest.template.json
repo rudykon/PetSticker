@@ -1,0 +1,15 @@
+{
+  "album_name": "宠物名｜主题",
+  "pet_name": "宠物名",
+  "expected_stickers": 24,
+  "identity_anchor": "用户批准的体型/风格锚点文件名",
+  "stickers": [],
+  "assets": {
+    "character_avatar": "character_avatar.png",
+    "detail_banner": "detail_banner.jpg",
+    "album_cover": "album_cover.png",
+    "chat_icon": "chat_icon.png",
+    "tipping_prompt": "tipping_prompt.jpg",
+    "tipping_thanks": "tipping_thanks.jpg"
+  }
+}
