@@ -154,8 +154,8 @@ project/
 ### 1. Clone the skill
 
 ```bash
-git clone https://github.com/rudykon/wechat-pet-sticker-designer.git
-cd wechat-pet-sticker-designer
+git clone https://github.com/rudykon/PetSticker.git
+cd PetSticker
 ```
 
 Load or copy the whole repository as one skill in a Skills-compatible ChatGPT/Codex environment. Keep `SKILL.md`, `agents/`, `assets/`, `references/`, and `scripts/` together.

@@ -154,8 +154,8 @@ project/
 ### 1. 克隆 Skill
 
 ```bash
-git clone https://github.com/rudykon/wechat-pet-sticker-designer.git
-cd wechat-pet-sticker-designer
+git clone https://github.com/rudykon/PetSticker.git
+cd PetSticker
 ```
 
 在支持 Skills 的 ChatGPT/Codex 环境中，将整个仓库作为一个 Skill 安装或加载。请保持 `SKILL.md`、`agents/`、`assets/`、`references/` 和 `scripts/` 位于同一目录层级。
