@@ -23,6 +23,7 @@
 
 <p align="center">
   <a href="#overview">Overview</a> ·
+  <a href="#input-output-example">Input → Output</a> ·
   <a href="#workflow">Workflow</a> ·
   <a href="#deliverables">Deliverables</a> ·
   <a href="#quick-start">Quick Start</a> ·
@@ -51,7 +52,38 @@ WeChat Pet Sticker Designer closes the full **design → generation → review �
 | Guarantee real transparency | Inspect the alpha channel on colored backgrounds instead of accepting checkerboards or white rectangles | Clean PNG assets without fake transparency or halos |
 | Deliver platform-ready files | Validate count, dimensions, format, opacity, naming, manifests, and QA documents | An auditable release directory ready for final submission review |
 
-The repository contains only general instructions, templates, and validation tools. It does **not** contain private pet photos or generated sticker albums.
+The repository contains general instructions, templates, validation tools, and this explicitly approved, cropped, metadata-stripped input/output case study. It does **not** contain the original input files, additional pet photos, private identity anchors, high-resolution work files, rejected drafts, or a full generated album.
+
+<a id="input-output-example"></a>
+## Input → output example: 布鲁 · Workplace
+
+This release-safe case study shows how one approved pet reference becomes a coherent, platform-ready album. The output preserves Bulu's large upright ears, warm gray-brown coat, light athletic proportions, and expressive face while expanding the character into distinct workplace scenarios.
+
+### Input reference
+
+<p align="center">
+  <img src="docs/showcase/workplace/input-reference.jpg" width="280" alt="Cropped input reference photo of Bulu the cat">
+</p>
+
+<p align="center"><sub>Cropped to the pet, resized for the README, and stripped of the original file metadata.</sub></p>
+
+<p align="center"><strong>↓ Character bible → Asset plan → Small-batch generation → Three QA gates ↓</strong></p>
+
+### Output sticker selection
+
+| Daily work moments | Support, pressure, and milestones |
+| --- | --- |
+| ![Clock-in, computer-crash, slacking, and done stickers](docs/showcase/workplace/output-workday.png) | ![Guidance, overload, Happy Friday, and promotion stickers](docs/showcase/workplace/output-milestones.png) |
+
+<p align="center"><sub>Eight representative transparent stickers selected from the complete 24-sticker album.</sub></p>
+
+### Companion detail banner
+
+<p align="center">
+  <img src="docs/showcase/workplace/detail-banner.jpg" width="750" alt="Bulu the cat at a bright office desk beside a laptop">
+</p>
+
+Only the cropped, metadata-stripped input reference and approved final artwork are shown. The original files, EXIF data, other references, private identity anchors, work files, and rejected drafts remain outside the repository.
 
 <a id="workflow"></a>
 ## Workflow
