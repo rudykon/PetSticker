@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <img src="docs/readme-hero.svg" width="100%" alt="From a pet reference to an audited WeChat sticker album">
+  <img src="docs/brand-mark.svg" width="430" alt="PetSticker — WeChat Pet Sticker Designer brand mark">
 </p>
 
 <h1 align="center">WeChat Pet Sticker Designer</h1>
@@ -29,6 +29,10 @@
   <a href="#validation">Validation</a> ·
   <a href="#repository-map">Repository</a> ·
   <a href="#license">License</a>
+</p>
+
+<p align="center">
+  <img src="docs/readme-hero.svg" width="100%" alt="From a pet reference to an audited WeChat sticker album">
 </p>
 
 > [!IMPORTANT]

@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <img src="docs/readme-hero.svg" width="100%" alt="从宠物参考图到经过审查的微信表情专辑">
+  <img src="docs/brand-mark.svg" width="430" alt="PetSticker — 微信宠物表情包设计品牌标识">
 </p>
 
 <h1 align="center">微信宠物表情包设计</h1>
@@ -29,6 +29,10 @@
   <a href="#自动校验">自动校验</a> ·
   <a href="#仓库地图">仓库地图</a> ·
   <a href="#许可证">许可证</a>
+</p>
+
+<p align="center">
+  <img src="docs/readme-hero.svg" width="100%" alt="从宠物参考图到经过审查的微信表情专辑">
 </p>
 
 > [!IMPORTANT]
