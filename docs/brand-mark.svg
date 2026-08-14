@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="200" viewBox="0 0 720 200" role="img" aria-labelledby="title desc">
+  <title id="title">PetSticker — 微信宠物表情包设计</title>
+  <desc id="desc">A compact brand mark combining a pet face, chat sticker, folded corner, and quality check.</desc>
+
+  <g transform="translate(10 10)">
+    <path d="M24 10H142C154 10 164 20 164 32V126C164 138 154 148 142 148H72L42 174V148H24C12 148 2 138 2 126V32C2 20 12 10 24 10Z" fill="#2F8F83"/>
+    <path d="M124 10H142C154 10 164 20 164 32V50Z" fill="#8BC8BE"/>
+    <path d="M124 10L164 50H144C133 50 124 41 124 30Z" fill="#DDF1EE"/>
+
+    <path d="M44 72L55 41L77 61" fill="#F4A261" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M122 72L111 41L89 61" fill="#F4A261" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round"/>
+    <ellipse cx="83" cy="91" rx="47" ry="43" fill="#F7C98E" stroke="#FFFFFF" stroke-width="6"/>
+    <path d="M59 88Q66 80 73 88M93 88Q100 80 107 88" fill="none" stroke="#1F2A44" stroke-width="5" stroke-linecap="round"/>
+    <path d="M76 101H90L83 109Z" fill="#E76F51"/>
+    <path d="M83 110Q72 123 61 114M83 110Q94 123 105 114" fill="none" stroke="#1F2A44" stroke-width="4" stroke-linecap="round"/>
+    <path d="M44 99L22 94M46 111L20 113M122 99L144 94M120 111L146 113" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+
+    <circle cx="137" cy="134" r="24" fill="#FEBD08" stroke="#1F2A44" stroke-width="5"/>
+    <path d="M126 134L134 142L149 125" fill="none" stroke="#1F2A44" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',sans-serif">
+    <text x="210" y="82" font-size="62" font-weight="800" letter-spacing="-2">
+      <tspan fill="#1F2A44">Pet</tspan><tspan fill="#2F8F83">Sticker</tspan>
+    </text>
+    <text x="214" y="124" fill="#1F2A44" font-family="'Noto Sans CJK SC','Microsoft YaHei','PingFang SC',sans-serif" font-size="27" font-weight="650" letter-spacing="2">微信宠物表情包设计</text>
+    <line x1="214" y1="143" x2="668" y2="143" stroke="#D9E2EC" stroke-width="2"/>
+    <text x="214" y="169" fill="#65758B" font-size="15" font-weight="700" letter-spacing="2.1">IDENTITY-LOCKED · QA-READY</text>
+  </g>
+</svg>
