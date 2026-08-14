@@ -32,9 +32,6 @@
   <a href="#license">License</a>
 </p>
 
-<p align="center">
-  <img src="docs/readme-hero.svg" width="100%" alt="A pet portrait with an expressive, quality-checked sticker collection">
-</p>
 
 > [!IMPORTANT]
 > **This is a quality-controlled workflow, not a one-click image dump.** Automated checks verify deterministic file requirements; they cannot prove that a sticker has correct anatomy, identity, proportions, semantics, or Chinese text. Always perform the documented per-image visual review and follow the latest official WeChat requirements.
