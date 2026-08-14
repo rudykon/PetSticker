@@ -32,7 +32,7 @@
 </p>
 
 <p align="center">
-  <img src="docs/readme-hero.svg" width="100%" alt="From a pet reference to an audited WeChat sticker album">
+  <img src="docs/readme-hero.svg" width="100%" alt="A pet portrait with an expressive, quality-checked sticker collection">
 </p>
 
 > [!IMPORTANT]
@@ -56,16 +56,21 @@ The repository contains only general instructions, templates, and validation too
 <a id="workflow"></a>
 ## Workflow
 
-```mermaid
-flowchart TB
-    A[Pet photos or approved character art] --> B[Character bible and body anchor]
-    B --> C[Independent asset plan]
-    C --> D[Small-batch generation]
-    D --> E[Deterministic text and real alpha]
-    E --> F{Three quality gates}
-    F -->|Failed asset| G[Repair only the failed file]
-    G --> F
-    F -->|Pass| H[Validation, contact sheet and release]
+```text
+[Pet reference]
+      |
+      v
+[Character bible] -> [Asset plan] -> [Small-batch generation]
+                                              |
+                                              v
+                                      [Three QA gates]
+                                         |        |
+                                       fail      pass
+                                         |        |
+                                         v        v
+                                  [Repair asset] [Validate + release]
+                                         |
+                                         +------> back to QA
 ```
 
 The three blocking gates are:
