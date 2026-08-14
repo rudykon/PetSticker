@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">From pet reference to audited sticker album</title>
+  <desc id="desc">A four-stage workflow showing identity anchoring, independent sticker assets, three-layer quality review, and a WeChat-ready release.</desc>
+  <rect width="1200" height="420" rx="28" fill="#F8FAFC"/>
+  <rect x="1" y="1" width="1198" height="418" rx="27" fill="none" stroke="#D9E2EC" stroke-width="2"/>
+
+  <text x="60" y="64" fill="#1F2A44" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="30" font-weight="700">From pet reference to audited sticker album</text>
+  <text x="60" y="94" fill="#65758B" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="16">Identity anchored · independently generated · visually reviewed · specification checked</text>
+
+  <g transform="translate(64 128)">
+    <circle cx="94" cy="105" r="88" fill="#E7F4F2"/>
+    <path d="M44 75 L55 31 L82 62" fill="#F4A261" stroke="#1F2A44" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M144 75 L133 31 L106 62" fill="#F4A261" stroke="#1F2A44" stroke-width="5" stroke-linejoin="round"/>
+    <ellipse cx="94" cy="104" rx="60" ry="55" fill="#F7C98E" stroke="#1F2A44" stroke-width="5"/>
+    <path d="M72 102 Q78 94 84 102" fill="none" stroke="#1F2A44" stroke-width="5" stroke-linecap="round"/>
+    <path d="M104 102 Q110 94 116 102" fill="none" stroke="#1F2A44" stroke-width="5" stroke-linecap="round"/>
+    <path d="M88 116 L100 116 L94 124 Z" fill="#E76F51"/>
+    <path d="M94 125 Q81 139 70 129 M94 125 Q107 139 118 129" fill="none" stroke="#1F2A44" stroke-width="4" stroke-linecap="round"/>
+    <path d="M48 111 L18 104 M50 122 L16 124 M140 111 L170 104 M138 122 L172 124" stroke="#65758B" stroke-width="3" stroke-linecap="round"/>
+    <path d="M58 150 Q94 170 130 150" fill="none" stroke="#2F8F83" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="94" cy="161" r="14" fill="#FEBD08" stroke="#1F2A44" stroke-width="4"/>
+    <path d="M88 161 L92 165 L101 156" fill="none" stroke="#1F2A44" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+    <g transform="translate(280 135)">
+      <rect width="190" height="160" rx="20" fill="#FFFFFF" stroke="#C8D4E3" stroke-width="2"/>
+      <circle cx="30" cy="30" r="18" fill="#2F8F83"/>
+      <text x="30" y="36" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="700">1</text>
+      <rect x="28" y="62" width="48" height="48" rx="12" fill="#E7F4F2"/>
+      <circle cx="52" cy="82" r="11" fill="#F4A261"/>
+      <path d="M39 103 Q52 88 65 103" fill="#F4A261"/>
+      <text x="92" y="79" fill="#1F2A44" font-size="16" font-weight="700">Identity anchor</text>
+      <text x="92" y="103" fill="#65758B" font-size="13">Face · body · tail</text>
+      <text x="28" y="137" fill="#65758B" font-size="13">Lock the approved character bible</text>
+    </g>
+
+    <path d="M480 215 H510" stroke="#9AA9BC" stroke-width="4" stroke-linecap="round"/>
+    <path d="M504 207 L514 215 L504 223" fill="none" stroke="#9AA9BC" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <g transform="translate(520 135)">
+      <rect width="190" height="160" rx="20" fill="#FFFFFF" stroke="#C8D4E3" stroke-width="2"/>
+      <circle cx="30" cy="30" r="18" fill="#4C6FFF"/>
+      <text x="30" y="36" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="700">2</text>
+      <g transform="translate(28 61)">
+        <rect width="30" height="30" rx="8" fill="#E9EEFF"/>
+        <rect x="36" width="30" height="30" rx="8" fill="#E9EEFF"/>
+        <rect y="36" width="30" height="30" rx="8" fill="#E9EEFF"/>
+        <rect x="36" y="36" width="30" height="30" rx="8" fill="#E9EEFF"/>
+      </g>
+      <text x="108" y="79" text-anchor="middle" fill="#1F2A44" font-size="16" font-weight="700">Independent assets</text>
+      <text x="108" y="103" text-anchor="middle" fill="#65758B" font-size="13">Small, reviewable batches</text>
+      <text x="28" y="137" fill="#65758B" font-size="13">One final file per generation call</text>
+    </g>
+
+    <path d="M720 215 H750" stroke="#9AA9BC" stroke-width="4" stroke-linecap="round"/>
+    <path d="M744 207 L754 215 L744 223" fill="none" stroke="#9AA9BC" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <g transform="translate(760 135)">
+      <rect width="190" height="160" rx="20" fill="#FFFFFF" stroke="#C8D4E3" stroke-width="2"/>
+      <circle cx="30" cy="30" r="18" fill="#E76F51"/>
+      <text x="30" y="36" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="700">3</text>
+      <path d="M40 72 L63 63 L86 72 V91 C86 109 73 122 63 127 C53 122 40 109 40 91 Z" fill="#FFF0EC" stroke="#E76F51" stroke-width="3"/>
+      <path d="M51 91 L60 100 L77 81" fill="none" stroke="#2F8F83" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="126" y="79" text-anchor="middle" fill="#1F2A44" font-size="16" font-weight="700">Three QA gates</text>
+      <text x="126" y="103" text-anchor="middle" fill="#65758B" font-size="13">Identity · anatomy · files</text>
+      <text x="28" y="137" fill="#65758B" font-size="13">Block, repair, and re-check</text>
+    </g>
+
+    <path d="M960 215 H990" stroke="#9AA9BC" stroke-width="4" stroke-linecap="round"/>
+    <path d="M984 207 L994 215 L984 223" fill="none" stroke="#9AA9BC" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <g transform="translate(1000 135)">
+      <rect width="140" height="160" rx="20" fill="#1F2A44"/>
+      <circle cx="30" cy="30" r="18" fill="#FEBD08"/>
+      <text x="30" y="36" text-anchor="middle" fill="#1F2A44" font-size="17" font-weight="700">4</text>
+      <rect x="35" y="61" width="70" height="56" rx="12" fill="#FFFFFF"/>
+      <circle cx="57" cy="85" r="10" fill="#F4A261"/>
+      <path d="M45 108 Q57 92 69 108" fill="#F4A261"/>
+      <path d="M77 82 L96 82 M77 94 L96 94" stroke="#2F8F83" stroke-width="4" stroke-linecap="round"/>
+      <text x="70" y="138" text-anchor="middle" fill="#FFFFFF" font-size="14" font-weight="700">WeChat-ready</text>
+    </g>
+  </g>
+
+  <g transform="translate(285 327)" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="13" font-weight="600">
+    <rect width="148" height="34" rx="17" fill="#E7F4F2"/><text x="74" y="22" text-anchor="middle" fill="#246B63">Identity locked</text>
+    <rect x="160" width="120" height="34" rx="17" fill="#E9EEFF"/><text x="220" y="22" text-anchor="middle" fill="#4056B8">Real alpha</text>
+    <rect x="292" width="158" height="34" rx="17" fill="#FFF0EC"/><text x="371" y="22" text-anchor="middle" fill="#A64C35">Correct anatomy</text>
+    <rect x="462" width="144" height="34" rx="17" fill="#FFF5DE"/><text x="534" y="22" text-anchor="middle" fill="#8A6510">Exact Chinese</text>
+    <rect x="618" width="176" height="34" rx="17" fill="#E7F4F2"/><text x="706" y="22" text-anchor="middle" fill="#246B63">Submission ready</text>
+  </g>
+</svg>
