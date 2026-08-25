@@ -39,7 +39,7 @@
 > There is no Pet Sticker Compliance Committee here. Scripts count pixels, frames, and file sizes; you answer the only two important questions: **Is that still my pet? Is it funny enough?**
 
 <a id="overview"></a>
-## Overview
+## 🐾 Overview
 
 PetSticker does one delightful job: it turns your pet's signature faces, suspicious side-eyes, and completely unnecessary little movements into stickers you can actually use in chat. It makes static PNGs and animated GIFs, while keeping an eye on mood-killers such as a surprise fifth leg, wandering captions, fake transparency, or a cat that changes identity halfway through the album.
 
@@ -53,11 +53,11 @@ PetSticker does one delightful job: it turns your pet's signature faces, suspici
 | Keep the files tidy | Check counts, dimensions, formats, names, and folders | A neat little album instead of a desktop crime scene |
 
 <a id="input-output-example"></a>
-## Input → output example: 布鲁 · Workplace
+## 🖼️ Input → output example: 布鲁 · Workplace
 
 Meet Bulu. One photo is enough to remember those huge upright ears, warm gray-brown coat, light build, and expressive face—then send the poor cat into a complete set of office adventures.
 
-### Input reference
+### 📸 Input reference
 
 <p align="center">
   <img src="docs/showcase/workplace/input-reference.jpg" width="280" alt="Cropped input reference photo of Bulu the cat">
@@ -67,7 +67,7 @@ Meet Bulu. One photo is enough to remember those huge upright ears, warm gray-br
 
 <p align="center"><strong>↓ Meet the cat → Plan the jokes → Draw small batches → Spot the weird bits ↓</strong></p>
 
-### Output sticker selection
+### 💬 Output sticker selection
 
 | Daily work moments | Support, pressure, and milestones |
 | --- | --- |
@@ -75,7 +75,7 @@ Meet Bulu. One photo is enough to remember those huge upright ears, warm gray-br
 
 <p align="center"><sub>Eight picks from the 24-sticker album. The others are busy pretending to work.</sub></p>
 
-### Companion detail banner
+### 🏙️ Companion detail banner
 
 <p align="center">
   <img src="docs/showcase/workplace/detail-banner.jpg" width="750" alt="Bulu the cat at a bright office desk beside a laptop">
@@ -84,7 +84,7 @@ Meet Bulu. One photo is enough to remember those huge upright ears, warm gray-br
 Yes, the cat is working harder than we are.
 
 <a id="animated-showcase"></a>
-## Animated showcase: 布鲁 · Chinese internet reactions
+## 🎬 Animated showcase: 布鲁 · Chinese internet reactions
 
 The cat performs; the caption stays put. These four GIFs were made with this skill: 240×240, 12 directly generated action drawings, a complete 2.00-second loop, real transparency, and less than 500 KB each. No RIFE, no optical-flow interpolation, and no cheating by shaking the entire sticker.
 
@@ -102,7 +102,7 @@ The cat performs; the caption stays put. These four GIFs were made with this ski
 Curious how the cat actually gets moving? [`references/animated-stickers.md`](references/animated-stickers.md) covers action planning, direct frame generation, caption locking, transparency cleanup, GIF timing, and repairs.
 
 <a id="workflow"></a>
-## How the cat gets into your chat
+## 🧩 How the cat gets into your chat
 
 ```text
 [One good pet photo]
@@ -132,7 +132,7 @@ The spot-checking happens in three quick rounds:
 Fix the odd sticker, not the entire cat family. Scripts can count and inspect files, but humans still decide whether it looks right and lands the joke.
 
 <a id="deliverables"></a>
-## What's in the cat bundle?
+## 📦 What's in the cat bundle?
 
 A complete static album normally includes:
 
@@ -168,9 +168,9 @@ project/
 ```
 
 <a id="quick-start"></a>
-## Three-step setup
+## 🚀 Three-step setup
 
-### 1. Clone the skill
+### 1. 📥 Clone the skill
 
 ```bash
 git clone https://github.com/rudykon/PetSticker.git
@@ -179,13 +179,13 @@ cd PetSticker
 
 Load or copy the whole repository as one skill in a Skills-compatible ChatGPT/Codex environment. Keep `SKILL.md`, `agents/`, `assets/`, `references/`, and `scripts/` together—do not scatter the cat's toolbox.
 
-### 2. Install the validator dependency
+### 2. 🧰 Install the validator dependency
 
 ```bash
 python3 -m pip install Pillow
 ```
 
-### 3. Invoke the skill
+### 3. 🐱 Invoke the skill
 
 ```text
 $wechat-pet-sticker-designer
@@ -203,7 +203,7 @@ extra limbs, duplicate tails, incorrect Chinese text, and style drift.
 Unless a missing choice would genuinely change the result, the skill meets your pet, plans the full set, and starts with a small batch. Check the vibe first; launch the cat's full reaction career second.
 
 <a id="validation"></a>
-## Let scripts count; do not let them judge the cat
+## 🔍 Let scripts count; do not let them judge the cat
 
 Dimensions, counts, frames, and filenames get boring fast. Hand those jobs to the script:
 
@@ -237,7 +237,7 @@ python3 scripts/make_animation_sheet.py \
 ```
 
 <a id="repository-map"></a>
-## Want to poke around? Here's the map
+## 🗺️ Want to poke around? Here's the map
 
 | Path | Purpose |
 | --- | --- |
@@ -253,6 +253,6 @@ python3 scripts/make_animation_sheet.py \
 | [`scripts/make_animation_sheet.py`](scripts/make_animation_sheet.py) | Row-by-row, frame-by-frame animated QA sheet generation |
 
 <a id="license"></a>
-## License
+## 📜 License
 
 The original instructions, templates, and scripts use the [MIT License](LICENSE). Pet photos, finished sticker art, fonts, and third-party materials follow their own terms. In short: **the code is here to play with; everybody keeps their own cat.**
