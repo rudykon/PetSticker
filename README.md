@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/ChatGPT%20%2F%20Codex-Skill-111827?style=flat-square" alt="ChatGPT and Codex skill">
+  <img src="https://img.shields.io/badge/AI%20agents-Portable%20workflow-111827?style=flat-square" alt="Portable workflow for AI agents">
   <img src="https://img.shields.io/badge/Python-%E2%89%A53.9-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python 3.9 or newer">
   <img src="https://img.shields.io/badge/Default%20album-24%20stickers-2F8F83?style=flat-square" alt="24 stickers by default">
   <img src="https://img.shields.io/badge/Modes-Static%20%2B%20GIF-6C63FF?style=flat-square" alt="Static and animated GIF modes">
@@ -24,6 +24,7 @@
 
 <p align="center">
   <a href="#overview">Overview</a> ·
+  <a href="#compatible-tools">Compatible Tools</a> ·
   <a href="#input-output-example">Input → Output</a> ·
   <a href="#animated-showcase">Animated Showcase</a> ·
   <a href="#workflow">Workflow</a> ·
@@ -51,6 +52,20 @@ PetSticker does one delightful job: it turns your pet's signature faces, suspici
 | Make the background truly transparent | Inspect alpha and edge colors | No white boxes, green fringe, or pretend checkerboards |
 | Move the pet, not the whole canvas | Generate real action drawings and check timing and loops | The pet performs while the frame stays put |
 | Keep the files tidy | Check counts, dimensions, formats, names, and folders | A neat little album instead of a desktop crime scene |
+
+<a id="compatible-tools"></a>
+## 🤖 Which AI tools can use it?
+
+PetSticker's workflow and scripts are not tied to ChatGPT or Codex. Any AI assistant that can read this repository, use image generation or editing capabilities, and run Python scripts when needed can help put your pet into the chat box.
+
+- [ChatGPT](https://chatgpt.com/) / [Codex](https://openai.com/codex/);
+- [Claude Code](https://code.claude.com/docs/en/overview);
+- [TRAE](https://www.trae.ai/ide/), [Cursor](https://www.cursor.com/), and [Kiro](https://kiro.dev/);
+- [ZCode](https://zcode.z.ai/en) and [OpenCode](https://github.com/anomalyco/opencode);
+- plus similar AI coding assistants that can read repository instructions, work with images, and execute scripts.
+
+> [!TIP]
+> If your tool supports Skills natively, install or load the whole repository. If it does not, open the repository as a project and ask the agent to read [`SKILL.md`](SKILL.md) plus the relevant files under `references/`. Image generation and background-removal capabilities come from whichever model, plugin, API, or local tool you use.
 
 <a id="input-output-example"></a>
 ## 🖼️ Input → output example: 布鲁 · Workplace
@@ -177,7 +192,7 @@ git clone https://github.com/rudykon/PetSticker.git
 cd PetSticker
 ```
 
-Load or copy the whole repository as one skill in a Skills-compatible ChatGPT/Codex environment. Keep `SKILL.md`, `agents/`, `assets/`, `references/`, and `scripts/` together—do not scatter the cat's toolbox.
+In tools with native Skills support, install or load the whole repository as one skill. In other AI coding assistants, open this repository and ask the agent to read `SKILL.md` first. Either way, keep `SKILL.md`, `agents/`, `assets/`, `references/`, and `scripts/` together—do not scatter the cat's toolbox.
 
 ### 2. 🧰 Install the validator dependency
 
@@ -189,6 +204,13 @@ python3 -m pip install Pillow
 
 ```text
 $wechat-pet-sticker-designer
+```
+
+If the current tool does not support `$skill-name` invocation, plain language works too:
+
+```text
+Read SKILL.md and the references needed for this task, then follow the repository
+workflow to create a static or animated WeChat sticker album from my pet references.
 ```
 
 Example request:

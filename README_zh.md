@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/ChatGPT%20%2F%20Codex-Skill-111827?style=flat-square" alt="ChatGPT 和 Codex Skill">
+  <img src="https://img.shields.io/badge/AI%20%E5%8A%A9%E6%89%8B-%E9%80%9A%E7%94%A8%E5%B7%A5%E4%BD%9C%E6%B5%81-111827?style=flat-square" alt="适用于多种 AI 助手的通用工作流">
   <img src="https://img.shields.io/badge/Python-%E2%89%A53.9-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python 3.9 或更高版本">
   <img src="https://img.shields.io/badge/%E9%BB%98%E8%AE%A4%E4%B8%93%E8%BE%91-24%20%E5%BC%A0%E8%A1%A8%E6%83%85-2F8F83?style=flat-square" alt="默认 24 张表情">
   <img src="https://img.shields.io/badge/%E6%A8%A1%E5%BC%8F-%E9%9D%99%E6%80%81%20%2B%20GIF-6C63FF?style=flat-square" alt="支持静态和 GIF 动图">
@@ -24,6 +24,7 @@
 
 <p align="center">
   <a href="#概览">概览</a> ·
+  <a href="#适用工具">适用工具</a> ·
   <a href="#输入输出示例">输入 → 输出</a> ·
   <a href="#动图效果">动图效果</a> ·
   <a href="#工作流">工作流</a> ·
@@ -51,6 +52,20 @@ PetSticker 就干一件事：把你家猫那些经典表情、欠欠的眼神和
 | 背景真的透明 | 检查 Alpha 和边缘残色 | 没有白底、绿边和假棋盘格 |
 | 动起来，但别整张摇 | 直接生成连续动作帧，再检查节奏和完整循环 | 猫在表演，画布站稳，过渡不抽风 |
 | 文件别散落一地 | 自动检查数量、尺寸、格式、命名和目录 | 一套收得整整齐齐的成品 |
+
+<a id="适用工具"></a>
+## 🤖 哪些 AI 工具能用？
+
+PetSticker 的方法和脚本不绑定 ChatGPT 或 Codex。只要 AI 助手能读取这个仓库、使用图像生成或编辑能力，并在需要时运行 Python 脚本，就可以把猫送进聊天框。
+
+- [ChatGPT](https://chatgpt.com/) / [Codex](https://openai.com/codex/)；
+- [Claude Code](https://code.claude.com/docs/en/overview)；
+- [TRAE](https://www.trae.ai/ide/)、[Cursor](https://www.cursor.com/)、[Kiro](https://kiro.dev/)；
+- [ZCode](https://zcode.z.ai/cn)、[OpenCode](https://github.com/anomalyco/opencode)；
+- 以及其他能读取仓库说明、处理图片和执行脚本的类似 AI 编码助手。
+
+> [!TIP]
+> 工具原生支持 Skills，就直接安装或加载整个仓库；不支持也没关系，把仓库作为项目打开，让 AI 先阅读 [`SKILL.md`](SKILL.md) 和任务所需的 `references/` 文档即可。图像生成、抠图等能力由你所用的模型、插件、API 或本地工具提供。
 
 <a id="输入输出示例"></a>
 ## 🖼️ 输入 → 输出示例：布鲁 · 职场办公
@@ -177,7 +192,7 @@ git clone https://github.com/rudykon/PetSticker.git
 cd PetSticker
 ```
 
-在支持 Skills 的 ChatGPT/Codex 环境中，把整个仓库当成一个 Skill 安装或加载。`SKILL.md`、`agents/`、`assets/`、`references/` 和 `scripts/` 要待在一起，别把猫的工具箱拆散了。
+原生支持 Skills 的工具，可以把整个仓库当成一个 Skill 安装或加载；其他 AI 编码助手则直接打开这个仓库，并让它先阅读 `SKILL.md`。无论用哪一种，`SKILL.md`、`agents/`、`assets/`、`references/` 和 `scripts/` 都要待在一起，别把猫的工具箱拆散了。
 
 ### 2. 🧰 安装校验脚本依赖
 
@@ -189,6 +204,13 @@ python3 -m pip install Pillow
 
 ```text
 $wechat-pet-sticker-designer
+```
+
+如果当前工具不支持 `$skill-name` 调用，直接这样说也可以：
+
+```text
+请先阅读 SKILL.md 和本次任务需要的 references 文档，然后按照仓库工作流，
+根据我提供的宠物参考图制作一套静态或 GIF 微信表情包。
 ```
 
 示例请求：

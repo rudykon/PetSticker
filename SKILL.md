@@ -1,11 +1,13 @@
 ---
 name: wechat-pet-sticker-designer
-description: Design, generate, animate, repair, review, resize, optimize, package, or prepare a personalized static or GIF pet sticker album for the WeChat Sticker Open Platform. Use when Codex must turn pet photos or an approved character reference into individual sticker files and companion assets, plan captions/scenes or semantic animation frames, preserve pet identity and body proportions, keep animated text static, enforce real transparency, prevent extra limbs/tails, check Chinese text and GIF timing, meet size limits, create submission-ready folders or ZIPs, or diagnose a rejected/defective pet sticker asset.
+description: Design, generate, animate, repair, review, resize, optimize, package, or prepare a personalized static or GIF pet sticker album for the WeChat Sticker Open Platform. Use when an AI agent must turn pet photos or an approved character reference into individual sticker files and companion assets, plan captions/scenes or semantic animation frames, preserve pet identity and body proportions, keep animated text static, enforce real transparency, prevent extra limbs/tails, check Chinese text and GIF timing, meet size limits, create submission-ready folders or ZIPs, or diagnose a rejected/defective pet sticker asset.
 ---
 
 # 微信宠物表情包设计
 
 以宠物参考图为身份锚点，完成“设计—生成—审查—规格化—打包”闭环。视觉质量与平台合规同等重要；未经逐图审查的批量生成不能作为成品交付。
+
+本流程不绑定某个模型、编辑器或 AI 助手。只要当前环境能读取本仓库的 Markdown 说明、使用图像生成/编辑能力并运行所需脚本，就可以执行；是否支持 `$skill-name` 形式的原生调用不影响工作流本身。
 
 ## 先读取所需资源
 
