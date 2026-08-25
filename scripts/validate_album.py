@@ -10,7 +10,7 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 
-from PIL import Image
+from PIL import Image, ImageSequence
 
 
 @dataclass(frozen=True)
@@ -81,6 +81,90 @@ def find_asset(directory: Path, spec: AssetSpec) -> Path | None:
     return next((directory / name for name in spec.names if (directory / name).is_file()), None)
 
 
+def check_gif_animation(
+    path: Path,
+    expected_frames: int | None,
+    expected_loop_ms: int | None,
+    expected_delays: list[int] | None,
+    duration_tolerance_ms: int,
+    require_infinite_loop: bool,
+    require_transparency: bool,
+    require_clear_edges: bool,
+    errors: list[str],
+) -> None:
+    try:
+        with Image.open(path) as image:
+            frame_count = getattr(image, "n_frames", 1)
+            if expected_frames is not None and frame_count != expected_frames:
+                errors.append(
+                    f"animation: {path.name} has {frame_count} frames, "
+                    f"expected {expected_frames}"
+                )
+
+            loop = image.info.get("loop")
+            if require_infinite_loop and loop != 0:
+                errors.append(
+                    f"animation: {path.name} loop={loop!r}; expected infinite loop (0)"
+                )
+
+            durations: list[int] = []
+            transparent_frames = 0
+            edge_frames: list[int] = []
+            for index, frame in enumerate(ImageSequence.Iterator(image), start=1):
+                if frame.size != (240, 240):
+                    errors.append(
+                        f"animation: {path.name} frame {index} is "
+                        f"{frame.size[0]}x{frame.size[1]}, expected 240x240"
+                    )
+                durations.append(int(frame.info.get("duration", image.info.get("duration", 0))))
+                rgba = frame.convert("RGBA")
+                alpha = rgba.getchannel("A")
+                if alpha.getextrema()[0] < 255:
+                    transparent_frames += 1
+                if require_clear_edges:
+                    width, height = rgba.size
+                    border = Image.new("L", (width * 2 + max(0, height - 2) * 2, 1), 0)
+                    pieces = [
+                        alpha.crop((0, 0, width, 1)),
+                        alpha.crop((0, height - 1, width, height)),
+                        alpha.crop((0, 1, 1, height - 1)).resize((max(0, height - 2), 1)),
+                        alpha.crop((width - 1, 1, width, height - 1)).resize((max(0, height - 2), 1)),
+                    ]
+                    offset = 0
+                    for piece in pieces:
+                        border.paste(piece, (offset, 0))
+                        offset += piece.width
+                    if border.getbbox() is not None:
+                        edge_frames.append(index)
+
+            if require_transparency and transparent_frames != frame_count:
+                errors.append(
+                    f"animation: {path.name} has real transparency in "
+                    f"{transparent_frames}/{frame_count} frames"
+                )
+            if edge_frames:
+                errors.append(
+                    f"animation: {path.name} has nontransparent canvas-edge pixels "
+                    f"in frames {edge_frames}"
+                )
+            if expected_delays is not None and durations != expected_delays:
+                errors.append(
+                    f"animation: {path.name} frame delays {durations} do not match "
+                    f"expected {expected_delays}"
+                )
+            total_ms = sum(durations)
+            if (
+                expected_loop_ms is not None
+                and abs(total_ms - expected_loop_ms) > duration_tolerance_ms
+            ):
+                errors.append(
+                    f"animation: {path.name} loop duration is {total_ms} ms, "
+                    f"expected {expected_loop_ms}±{duration_tolerance_ms} ms"
+                )
+    except Exception as exc:
+        errors.append(f"animation: cannot inspect {path.name}: {exc}")
+
+
 def load_manifest(album: Path, errors: list[str]) -> dict | None:
     path = album / "manifest.json"
     if not path.exists():
@@ -106,6 +190,21 @@ def main() -> int:
         action="store_true",
         help="include GIF files when validating dynamic sticker sets",
     )
+    parser.add_argument("--gif-frames", type=int, help="required frame count for every GIF sticker")
+    parser.add_argument("--gif-loop-ms", type=int, help="required total loop duration in milliseconds")
+    parser.add_argument(
+        "--gif-frame-delays",
+        help="required comma-separated per-frame delays in milliseconds",
+    )
+    parser.add_argument(
+        "--gif-duration-tolerance-ms",
+        type=int,
+        default=20,
+        help="allowed total-duration difference; default: 20 ms",
+    )
+    parser.add_argument("--require-infinite-loop", action="store_true")
+    parser.add_argument("--require-transparent-gif", action="store_true")
+    parser.add_argument("--require-clear-gif-edges", action="store_true")
     parser.add_argument(
         "--require-qa-docs",
         action="store_true",
@@ -113,6 +212,16 @@ def main() -> int:
     )
     parser.add_argument("--json", action="store_true", dest="json_output")
     args = parser.parse_args()
+
+    expected_gif_delays: list[int] | None = None
+    if args.gif_frame_delays:
+        try:
+            expected_gif_delays = [
+                int(value.strip()) for value in args.gif_frame_delays.split(",")
+                if value.strip()
+            ]
+        except ValueError as exc:
+            parser.error(f"--gif-frame-delays must contain integers: {exc}")
 
     album = args.album.resolve()
     stickers_dir = album / "stickers"
@@ -148,9 +257,21 @@ def main() -> int:
         # and GIF can be valid platform files, so validate dimensions without
         # falsely requiring transparency for those formats.
         sticker_spec = AssetSpec(
-            ("",), (240, 240), path.suffix.lower() == ".png", 500_000
+            ("",), (240, 240), True if path.suffix.lower() == ".png" else None, 500_000
         )
         check_image(path, sticker_spec, "sticker", errors, warnings)
+        if path.suffix.lower() == ".gif":
+            check_gif_animation(
+                path,
+                args.gif_frames,
+                args.gif_loop_ms,
+                expected_gif_delays,
+                max(0, args.gif_duration_tolerance_ms),
+                args.require_infinite_loop,
+                args.require_transparent_gif,
+                args.require_clear_gif_edges,
+                errors,
+            )
 
     expected_numbers = set(range(1, args.expected_stickers + 1))
     if seen_numbers and seen_numbers != expected_numbers:

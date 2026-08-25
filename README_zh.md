@@ -39,7 +39,7 @@
 <a id="概览"></a>
 ## 概览
 
-本 Skill 形成完整的 **设计 → 生成 → 审查 → 规格化 → 打包** 闭环。它以真实宠物照片或用户批准的角色图为身份锚点，把整套专辑拆分为独立素材，采用小批次生成，并在发布前阻断多肢、多尾、错字、伪透明和体型漂移等缺陷。
+本 Skill 形成完整的 **设计 → 生成 → 审查 → 优化 → 规格化 → 打包** 闭环。它同时支持静态和 GIF 动态宠物表情，以真实宠物照片或用户批准的角色图为身份锚点，把整套专辑拆分为独立素材，采用小批次生成，并在发布前阻断多肢、多尾、错字、伪透明、体型漂移和时间轴错误等缺陷。
 
 | 目标 | 方法 | 结果 |
 | --- | --- | --- |
@@ -47,6 +47,7 @@
 | 避免结构性错误 | 在原始分辨率检查肢体/尾巴数量、连接点、道具关系、裁切和动作语义 | 不出现多脚、双尾、融合部件或不可能动作 |
 | 保证小尺寸可读 | 仅在提升语义时使用短中文或通用符号；生成不稳定时确定性排字 | 没有乱码、形近错字和随机英文 |
 | 保证真实透明 | 检查 Alpha 通道，并在彩色底上检查白边、灰边和方形底板 | 获得干净透明、无伪棋盘格的 PNG |
+| 保证动图自然 | 用语义动作直接生成连续帧，检查时长、循环、过渡和静态文字锁定 | 猫和必要道具在动，文字与画布固定，无插值失真 |
 | 形成平台可交付文件 | 检查数量、尺寸、格式、透明度、命名、清单和 QA 文档 | 获得可审计、可终检的发布目录 |
 
 仓库包含通用说明、模板、校验工具，以及这组经明确批准、裁切并移除元数据的输入/输出案例；**不包含**原始输入文件、其他宠物照片、私人身份锚点、高分辨率工作源、失败稿或完整生成专辑。
@@ -202,7 +203,19 @@ python3 scripts/make_contact_sheet.py \
   /absolute/path/to/qa_overview.png
 ```
 
-需要机器可读报告时添加 `--json`。若微信当前规范允许动态表情，可使用 `--allow-gif-stickers` 将 GIF 纳入校验。
+需要机器可读报告时添加 `--json`。动态专辑应同时检查帧数、延时、总时长、无限循环和逐帧透明，例如：
+
+```bash
+python3 scripts/validate_album.py /absolute/path/to/project/release \
+  --expected-stickers 24 --allow-gif-stickers \
+  --gif-frames 12 --gif-loop-ms 2000 \
+  --require-infinite-loop --require-transparent-gif \
+  --require-clear-gif-edges --require-qa-docs
+
+python3 scripts/make_animation_sheet.py \
+  /absolute/path/to/project/release/stickers \
+  /absolute/path/to/all_frames.png --expected-frames 12
+```
 
 <a id="仓库地图"></a>
 ## 仓库地图
@@ -213,10 +226,12 @@ python3 scripts/make_contact_sheet.py \
 | [`agents/openai.yaml`](agents/openai.yaml) | Skill 显示名称、默认提示词、产品策略和图标映射 |
 | [`references/wechat-assets.md`](references/wechat-assets.md) | 微信素材尺寸、格式、透明度和大小要求 |
 | [`references/character-and-prompts.md`](references/character-and-prompts.md) | 角色圣经、提示词、中文排字和返修策略 |
+| [`references/animated-stickers.md`](references/animated-stickers.md) | 动图语义拆帧、直接生成、透明处理、检查和优化方法 |
 | [`references/qa-and-delivery.md`](references/qa-and-delivery.md) | 人工终检、异常处理和交付协议 |
 | [`assets/`](assets) | 角色圣经、清单、QA 报告模板和 Skill 图标 |
 | [`scripts/validate_album.py`](scripts/validate_album.py) | 专辑结构与图片文件的确定性校验 |
 | [`scripts/make_contact_sheet.py`](scripts/make_contact_sheet.py) | 生成带编号的视觉总览图 |
+| [`scripts/make_animation_sheet.py`](scripts/make_animation_sheet.py) | 生成逐张逐帧的动态 QA 总览图 |
 
 ## 隐私与负责任使用
 

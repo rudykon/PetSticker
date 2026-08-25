@@ -1,6 +1,6 @@
 ---
 name: wechat-pet-sticker-designer
-description: Design, generate, repair, review, resize, package, or prepare a personalized pet sticker album for the WeChat Sticker Open Platform. Use when Codex must turn pet photos or an approved character reference into individual WeChat sticker files and companion assets, plan sticker captions/scenes, preserve pet identity and body proportions, enforce real transparency, prevent extra limbs/tails, check Chinese text, comply with WeChat dimensions, create submission-ready folders or ZIPs, or diagnose a rejected/defective pet sticker asset.
+description: Design, generate, animate, repair, review, resize, optimize, package, or prepare a personalized static or GIF pet sticker album for the WeChat Sticker Open Platform. Use when Codex must turn pet photos or an approved character reference into individual sticker files and companion assets, plan captions/scenes or semantic animation frames, preserve pet identity and body proportions, keep animated text static, enforce real transparency, prevent extra limbs/tails, check Chinese text and GIF timing, meet size limits, create submission-ready folders or ZIPs, or diagnose a rejected/defective pet sticker asset.
 ---
 
 # 微信宠物表情包设计
@@ -11,6 +11,7 @@ description: Design, generate, repair, review, resize, package, or prepare a per
 
 - 开始任何制作或验收前，读取 [wechat-assets.md](references/wechat-assets.md)。
 - 需要建立角色、写生成提示词、控制中文或返修时，再读取 [character-and-prompts.md](references/character-and-prompts.md)。
+- 制作、检查或优化 GIF 动图时，读取 [animated-stickers.md](references/animated-stickers.md)。
 - 需要人工终检、交付或处理异常素材时，再读取 [qa-and-delivery.md](references/qa-and-delivery.md)。
 
 若用户给出更新的官方文档，以该文档为准；记录与本 Skill 默认表格的差异，不要用旧规格覆盖新要求。
@@ -53,6 +54,8 @@ description: Design, generate, repair, review, resize, package, or prepare a per
 - 1 张聊天页图标；
 - 启用赞赏时，1 张赞赏引导图和 1 张赞赏致谢图。
 
+若用户要动态专辑，先在 manifest 中记录画布、帧数、逐帧延时、完整循环时长、循环方式、透明背景、文字是否静止、体积上限和插值许可。不要默认套用某个帧数或速度；按用户要求设计，并使用 [animated-stickers.md](references/animated-stickers.md) 的语义拆帧方法。
+
 让 24 个表情覆盖不同姿势、面部表情和使用语境；避免仅替换文案。优先使用 2–4 个汉字或通用符号提升小尺寸理解度，但不是每张都强行加字。
 
 把生成拆成 3–4 张的小批次。首批通过身份、体型、文字和解剖审查后再扩批；发现系统性偏胖、偏瘦或风格漂移时，暂停后续生成并重设锚点。
@@ -62,6 +65,8 @@ description: Design, generate, repair, review, resize, package, or prepare a per
 使用可用的图像生成/编辑能力，每次为一个最终资产调用一次生成；可并行生成互不依赖的小批次。先查看所有要引用的图像；编辑现有图时带上对应参考图，创建新图时也要在提示词中明确各参考图的职责。把角色圣经、动作、文字、背景和解剖约束写进每个提示词。
 
 对完整身体画面明确要求：一只宠物、该物种正常的四肢数量、单尾动物仅一条尾巴、无重复/融合/漂浮/裁断部件。复杂道具动作要说明每只爪的位置及道具与身体的边界。
+
+动图不得用整张贴纸的平移、旋转、缩放、抖动或裁切冒充角色动作。需要质量优先或用户禁止插值时，每帧直接生成完整动作图；失败过渡帧应重新生成，不得用 RIFE、光流或形变补帧替代真实中间姿势。
 
 对详情页横幅优先采用头肩或胸像构图，不展示四肢和尾巴；横幅完全不放文字。该构图能从源头降低多脚、多尾和文字违规风险。
 
@@ -73,6 +78,8 @@ description: Design, generate, repair, review, resize, package, or prepare a per
 2. 使用支持中文的字体在后期确定性排字；
 3. 对照清单逐字复核，不接受形近错字、乱码或随机英文。
 
+动图文字只生成和排版一次，再以同一坐标合成到全部帧；手写字形的倾斜、大小和基线差异也必须固定。不得让模型在每帧重新生成文字。
+
 透明素材必须含真实 Alpha。棋盘格图案、白底或黑底都不等于透明；在彩色底上检查白边、灰边、绿边、残留棋盘格和方形底板。不要用会误删宠物浅色毛发的粗暴颜色抠图；必要时重新生成或使用精细蒙版。
 
 ### 6. 每批执行三层门禁
@@ -82,6 +89,8 @@ description: Design, generate, repair, review, resize, package, or prepare a per
 1. **身份与体型门**：与锚点比较脸型、花色、眼睛、耳朵、胸腹厚度、头身比、腿爪、尾巴和配饰。
 2. **结构与语义门**：在原始分辨率检查部件数量/连接关系；在目标小尺寸检查动作、文字、符号和 24 张之间的区分度。
 3. **文件规格门**：检查数量、尺寸、格式、Alpha/不透明要求、压缩阈值、命名和目录。
+
+动图再增加 **时间轴与过渡门**：检查帧数、逐帧延时、总循环时长、首尾衔接、静态文字锁定、相邻帧身份/解剖/道具连续性，以及实际播放速度。
 
 任何一层失败都只返修失败文件，然后重新走三层门禁。多肢、多尾、文字错误、体型漂移或伪透明属于阻断性缺陷，不能带病打包。
 
@@ -119,6 +128,8 @@ python3 scripts/make_contact_sheet.py \
   /absolute/path/to/project/release/stickers /absolute/path/to/qa_overview.png
 ```
 
+动态专辑还应运行 `validate_album.py` 的 GIF 参数并生成逐帧总览；完整命令见 [animated-stickers.md](references/animated-stickers.md)。
+
 自动检查通过不代表视觉审查通过；必须查看总览图，并按 [qa-and-delivery.md](references/qa-and-delivery.md) 逐张人工确认。
 
 ### 8. 交付
@@ -134,5 +145,6 @@ python3 scripts/make_contact_sheet.py \
 - 中文文案、宠物名牌或素材数量仍不确定；
 - 关键文件存在多肢、多尾、裁切、伪透明或错字，尚未返修；
 - 生成工具无法产出独立文件，却准备把拼图当作最终表情交付。
+- 用户禁止插值或要求直接生成动作帧，却仍准备使用 RIFE、光流、形变补帧或整图摇晃。
 
 遇到这些情况时，先修复或向用户确认，不要继续批量扩展或宣称完成。

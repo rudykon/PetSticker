@@ -44,6 +44,29 @@
 - 检查棋盘格残留、方形底板、白边、灰边、绿边、孔洞和毛发被误删；
 - 头像、封面和聊天图标同样执行，不只检查 24 张表情。
 
+## 动图逐帧与播放检查
+
+- 核对每张 GIF 的帧数、逐帧延时、总循环时长、无限循环和体积上限；
+- 查看逐帧总览，检查相邻帧身份、体型、四肢、尾巴、道具和透明边缘；
+- 实际播放检查速度、节奏、动作峰值、首尾衔接和是否存在整图摇晃；
+- 文字区使用同一静态图层，逐帧像素比较必须一致；
+- 个别帧失败时只返修失败帧，重新编码后再次检查整张 GIF；
+- 绿幕检查同时覆盖与背景相连的绿边和被身体/尾巴包围的封闭绿色块，并保护合法绿色道具。
+
+使用 [animated-stickers.md](animated-stickers.md) 的四层动态验收和问题优化表。可运行：
+
+```bash
+python3 scripts/validate_album.py /absolute/path/to/release \
+  --expected-stickers 24 --allow-gif-stickers \
+  --gif-frames 12 --gif-loop-ms 2000 \
+  --require-infinite-loop --require-transparent-gif \
+  --require-clear-gif-edges --require-qa-docs
+
+python3 scripts/make_animation_sheet.py \
+  /absolute/path/to/release/stickers /absolute/path/to/all_frames.png \
+  --expected-frames 12
+```
+
 ## 横幅与赞赏图检查
 
 - 横幅 750×400，不透明、非白底、完全无文字；
@@ -53,7 +76,7 @@
 
 ## 自动脚本的边界
 
-`validate_album.py` 可以检查：文件是否存在、数量、扩展名、像素、Alpha 模式、体积阈值提示、编号重复/缺失、manifest 文案是否重复。
+`validate_album.py` 可以检查：文件是否存在、数量、扩展名、像素、Alpha 模式、体积阈值提示、编号重复/缺失、manifest 文案是否重复；对 GIF 还可检查帧数、逐帧延时、总时长、无限循环、逐帧透明和画布边缘。
 
 它不能可靠证明：没有多肢/多尾、体型一致、中文图中文字正确、没有伪棋盘格、动作语义合理。因此不得用脚本 PASS 代替人工审查结论。
 
@@ -63,7 +86,7 @@
 2. 清除元数据并合理压缩，不为追求小体积破坏透明边缘；
 3. 运行 `validate_album.py`；
 4. 生成并查看 24 宫格总览；
-5. 逐张原图检查高风险姿势和所有配套图；
+5. 动态专辑再生成逐帧总览并实际播放；逐张原图检查高风险姿势和所有配套图；
 6. 正式目录移除草稿、失败稿、字体和临时脚本；
 7. 仅在用户要求时创建 ZIP；
 8. 用压缩包测试工具验证无损坏，并再次统计正式文件；

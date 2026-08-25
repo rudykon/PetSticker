@@ -39,7 +39,7 @@
 <a id="overview"></a>
 ## Overview
 
-WeChat Pet Sticker Designer closes the full **design → generation → review → normalization → packaging** loop. It keeps a real pet or approved character reference as the identity anchor, breaks an album into independent assets, generates in small batches, and blocks defective files before release.
+WeChat Pet Sticker Designer closes the full **design → generation → review → optimization → normalization → packaging** loop for both static and animated GIF pet stickers. It keeps a real pet or approved character reference as the identity anchor, breaks an album into independent assets, generates in small batches, and blocks anatomy, transparency, typography, and timeline defects before release.
 
 | Goal | Method | Result |
 | --- | --- | --- |
@@ -47,6 +47,7 @@ WeChat Pet Sticker Designer closes the full **design → generation → review �
 | Prevent structural defects | Review limb/tail counts, attachment points, props, crops, and pose semantics at source resolution | No extra legs, duplicate tails, fused parts, or impossible actions |
 | Keep small stickers readable | Use short Chinese captions or universal symbols only when they improve meaning; typeset deterministically when generation is unreliable | Accurate, legible captions without random glyphs |
 | Guarantee real transparency | Inspect the alpha channel on colored backgrounds instead of accepting checkerboards or white rectangles | Clean PNG assets without fake transparency or halos |
+| Keep animation natural | Generate semantic action drawings directly, then inspect timing, loops, transitions, and the static text lock | The pet and necessary props move while text and canvas stay fixed, without interpolation distortion |
 | Deliver platform-ready files | Validate count, dimensions, format, opacity, naming, manifests, and QA documents | An auditable release directory ready for final submission review |
 
 The repository contains general instructions, templates, validation tools, and this explicitly approved, cropped, metadata-stripped input/output case study. It does **not** contain the original input files, additional pet photos, private identity anchors, high-resolution work files, rejected drafts, or a full generated album.
@@ -203,7 +204,19 @@ python3 scripts/make_contact_sheet.py \
   /absolute/path/to/qa_overview.png
 ```
 
-For machine-readable validation output, add `--json`. Dynamic albums can include GIF stickers with `--allow-gif-stickers` when the current platform specification permits them.
+For machine-readable validation output, add `--json`. For dynamic albums, also validate frame count, timing, looping, and per-frame transparency, then build an all-frame QA sheet:
+
+```bash
+python3 scripts/validate_album.py /absolute/path/to/project/release \
+  --expected-stickers 24 --allow-gif-stickers \
+  --gif-frames 12 --gif-loop-ms 2000 \
+  --require-infinite-loop --require-transparent-gif \
+  --require-clear-gif-edges --require-qa-docs
+
+python3 scripts/make_animation_sheet.py \
+  /absolute/path/to/project/release/stickers \
+  /absolute/path/to/all_frames.png --expected-frames 12
+```
 
 <a id="repository-map"></a>
 ## Repository map
@@ -214,10 +227,12 @@ For machine-readable validation output, add `--json`. Dynamic albums can include
 | [`agents/openai.yaml`](agents/openai.yaml) | Skill display name, default prompt, product policy, and icon mapping |
 | [`references/wechat-assets.md`](references/wechat-assets.md) | WeChat asset dimensions, formats, transparency, and size guidance |
 | [`references/character-and-prompts.md`](references/character-and-prompts.md) | Character bible, prompting, Chinese typography, and repair strategy |
+| [`references/animated-stickers.md`](references/animated-stickers.md) | Semantic frame planning, direct generation, transparency repair, animation QA, and optimization |
 | [`references/qa-and-delivery.md`](references/qa-and-delivery.md) | Manual review checklist, exception handling, and delivery protocol |
 | [`assets/`](assets) | Character bible, manifest, QA report templates, and skill icon |
 | [`scripts/validate_album.py`](scripts/validate_album.py) | Deterministic album and image-file validation |
 | [`scripts/make_contact_sheet.py`](scripts/make_contact_sheet.py) | Numbered visual overview generation |
+| [`scripts/make_animation_sheet.py`](scripts/make_animation_sheet.py) | Row-by-row, frame-by-frame animated QA sheet generation |
 
 ## Privacy and responsible use
 

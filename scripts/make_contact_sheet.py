@@ -19,7 +19,7 @@ def main() -> int:
 
     files = sorted(
         p for p in args.stickers.iterdir()
-        if p.is_file() and p.suffix.lower() in {".png", ".jpg", ".jpeg", ".webp"}
+        if p.is_file() and p.suffix.lower() in {".png", ".jpg", ".jpeg", ".webp", ".gif"}
     )
     if not files:
         raise SystemExit("no sticker images found")
@@ -36,6 +36,8 @@ def main() -> int:
         row, col = divmod(index, columns)
         x, y = col * cell, row * (cell + label_h)
         with Image.open(path) as source:
+            if getattr(source, "n_frames", 1) > 1:
+                source.seek(0)
             image = source.convert("RGBA")
             image.thumbnail((cell - 16, cell - 16), Image.Resampling.LANCZOS)
             px = x + (cell - image.width) // 2
