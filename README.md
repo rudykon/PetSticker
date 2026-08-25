@@ -9,21 +9,23 @@
 <h1 align="center">WeChat Pet Sticker Designer</h1>
 
 <p align="center">
-  <strong>Identity-anchored design, three-layer QA, and submission-ready delivery</strong><br>
-  A reusable ChatGPT/Codex skill for turning pet references into consistent, reviewable WeChat sticker albums.
+  <strong>Identity-anchored design, static/animated modes, layered QA, and submission-ready delivery</strong><br>
+  A reusable ChatGPT/Codex skill for turning pet references into consistent WeChat sticker albums that can be reviewed image by image and frame by frame.
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/ChatGPT%20%2F%20Codex-Skill-111827?style=flat-square" alt="ChatGPT and Codex skill">
   <img src="https://img.shields.io/badge/Python-%E2%89%A53.9-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python 3.9 or newer">
   <img src="https://img.shields.io/badge/Default%20album-24%20stickers-2F8F83?style=flat-square" alt="24 stickers by default">
-  <img src="https://img.shields.io/badge/QA-3%20gates-E76F51?style=flat-square" alt="Three quality gates">
+  <img src="https://img.shields.io/badge/Modes-Static%20%2B%20GIF-6C63FF?style=flat-square" alt="Static and animated GIF modes">
+  <img src="https://img.shields.io/badge/QA-Layered%20gates-E76F51?style=flat-square" alt="Layered quality gates">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-F4A261?style=flat-square" alt="MIT License"></a>
 </p>
 
 <p align="center">
   <a href="#overview">Overview</a> ·
   <a href="#input-output-example">Input → Output</a> ·
+  <a href="#animated-showcase">Animated Showcase</a> ·
   <a href="#workflow">Workflow</a> ·
   <a href="#deliverables">Deliverables</a> ·
   <a href="#quick-start">Quick Start</a> ·
@@ -82,6 +84,24 @@ This release-safe case study shows how one approved pet reference becomes a cohe
 </p>
 
 Only the cropped, metadata-stripped input reference and approved final artwork are shown. The original files, EXIF data, other references, private identity anchors, work files, and rejected drafts remain outside the repository.
+
+<a id="animated-showcase"></a>
+## Animated showcase: 布鲁 · Chinese internet reactions
+
+These GIFs were produced with this skill and passed the documented review. Each is 240×240, contains 12 directly generated action drawings, loops in exactly 2.00 seconds, uses real transparency, and stays below 500 KB. No RIFE, optical-flow interpolation, or whole-sticker shaking was used; the handwritten text layer remains pixel-fixed across every frame.
+
+<table>
+  <tr>
+    <td align="center"><strong>Eating watermelon｜prop contact and chewing</strong><br><img src="docs/showcase/animated/02-eating-watermelon.gif" width="210" alt="Animated sticker of Bulu holding, biting, and chewing watermelon"></td>
+    <td align="center"><strong>Cannot stop laughing｜full-body rolling laugh</strong><br><img src="docs/showcase/animated/04-laughing.gif" width="210" alt="Animated sticker of Bulu progressing from suppressed laughter to rolling laughter"></td>
+  </tr>
+  <tr>
+    <td align="center"><strong>Run｜continuous running poses</strong><br><img src="docs/showcase/animated/08-running.gif" width="210" alt="Animated sticker of Bulu pushing off and running"></td>
+    <td align="center"><strong>Thanks｜complete bowing loop</strong><br><img src="docs/showcase/animated/22-thanks.gif" width="210" alt="Animated sticker of Bulu joining its paws and bowing in thanks"></td>
+  </tr>
+</table>
+
+See [`references/animated-stickers.md`](references/animated-stickers.md) for semantic frame planning, direct action-frame generation, static text locking, transparency repair, GIF timeline validation, and problem-specific optimization.
 
 <a id="workflow"></a>
 ## Workflow

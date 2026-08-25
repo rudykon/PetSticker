@@ -9,21 +9,23 @@
 <h1 align="center">微信宠物表情包设计</h1>
 
 <p align="center">
-  <strong>身份锚定设计、三层质量门禁、可审计交付</strong><br>
-  将宠物参考图转化为形象一致、可逐图审查、符合微信素材规格的专属表情包。
+  <strong>身份锚定设计、静态/动图双模式、分层质量门禁、可审计交付</strong><br>
+  将宠物参考图转化为形象一致、可逐图逐帧审查、符合微信素材规格的专属表情包。
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/ChatGPT%20%2F%20Codex-Skill-111827?style=flat-square" alt="ChatGPT 和 Codex Skill">
   <img src="https://img.shields.io/badge/Python-%E2%89%A53.9-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python 3.9 或更高版本">
   <img src="https://img.shields.io/badge/%E9%BB%98%E8%AE%A4%E4%B8%93%E8%BE%91-24%20%E5%BC%A0%E8%A1%A8%E6%83%85-2F8F83?style=flat-square" alt="默认 24 张表情">
-  <img src="https://img.shields.io/badge/%E8%B4%A8%E9%87%8F%E5%AE%A1%E6%9F%A5-3%20%E5%B1%82%E9%97%A8%E7%A6%81-E76F51?style=flat-square" alt="三层质量门禁">
+  <img src="https://img.shields.io/badge/%E6%A8%A1%E5%BC%8F-%E9%9D%99%E6%80%81%20%2B%20GIF-6C63FF?style=flat-square" alt="支持静态和 GIF 动图">
+  <img src="https://img.shields.io/badge/%E8%B4%A8%E9%87%8F%E5%AE%A1%E6%9F%A5-%E5%88%86%E5%B1%82%E9%97%A8%E7%A6%81-E76F51?style=flat-square" alt="分层质量门禁">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-F4A261?style=flat-square" alt="MIT License"></a>
 </p>
 
 <p align="center">
   <a href="#概览">概览</a> ·
   <a href="#输入输出示例">输入 → 输出</a> ·
+  <a href="#动图效果">动图效果</a> ·
   <a href="#工作流">工作流</a> ·
   <a href="#交付内容">交付内容</a> ·
   <a href="#快速开始">快速开始</a> ·
@@ -82,6 +84,24 @@
 </p>
 
 这里只公开经过裁切并移除元数据的输入参考图，以及经批准的最终成品；原始文件、EXIF 信息、其他参考图、私人身份锚点、工作文件与失败稿均不进入仓库。
+
+<a id="动图效果"></a>
+## 动图效果：布鲁 · 网络热梗
+
+下面是使用本 Skill 实际制作并通过验收的 GIF 成品。每张均为 240×240、12 张直接生成的连续动作帧、完整循环 2.00 秒、透明背景且低于 500 KB；没有使用 RIFE、光流或整图摇晃，手写文字在全部帧中固定不动。
+
+<table>
+  <tr>
+    <td align="center"><strong>吃瓜｜道具接触与咀嚼</strong><br><img src="docs/showcase/animated/02-eating-watermelon.gif" width="210" alt="布鲁猫抱住西瓜并咬下咀嚼的动态表情"></td>
+    <td align="center"><strong>绷不住了｜全身翻滚大笑</strong><br><img src="docs/showcase/animated/04-laughing.gif" width="210" alt="布鲁猫从忍笑到翻滚大笑的动态表情"></td>
+  </tr>
+  <tr>
+    <td align="center"><strong>快跑｜连续奔跑姿态</strong><br><img src="docs/showcase/animated/08-running.gif" width="210" alt="布鲁猫连续蹬地奔跑的动态表情"></td>
+    <td align="center"><strong>感谢｜完整鞠躬循环</strong><br><img src="docs/showcase/animated/22-thanks.gif" width="210" alt="布鲁猫合爪鞠躬感谢的动态表情"></td>
+  </tr>
+</table>
+
+完整方法见 [`references/animated-stickers.md`](references/animated-stickers.md)：语义拆帧、直接生成动作图、静态文字锁定、透明背景修复、GIF 时间轴检查和按问题类型优化。
 
 <a id="工作流"></a>
 ## 工作流
