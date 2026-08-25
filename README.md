@@ -9,8 +9,8 @@
 <h1 align="center">WeChat Pet Sticker Designer</h1>
 
 <p align="center">
-  <strong>Identity-anchored design, static/animated modes, layered QA, and submission-ready delivery</strong><br>
-  A reusable ChatGPT/Codex skill for turning pet references into consistent WeChat sticker albums that can be reviewed image by image and frame by frame.
+  <strong>Turn your pet into a tiny reaction star: judging, snacking, sprinting, and rolling with laughter 🐾</strong><br>
+  Static stickers or GIFs—your pet brings the attitude, this skill handles the fiddly bits.
 </p>
 
 <p align="center">
@@ -18,7 +18,7 @@
   <img src="https://img.shields.io/badge/Python-%E2%89%A53.9-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python 3.9 or newer">
   <img src="https://img.shields.io/badge/Default%20album-24%20stickers-2F8F83?style=flat-square" alt="24 stickers by default">
   <img src="https://img.shields.io/badge/Modes-Static%20%2B%20GIF-6C63FF?style=flat-square" alt="Static and animated GIF modes">
-  <img src="https://img.shields.io/badge/QA-Layered%20gates-E76F51?style=flat-square" alt="Layered quality gates">
+  <img src="https://img.shields.io/badge/Star-Your%20pet-E76F51?style=flat-square" alt="Your pet is the star">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-F4A261?style=flat-square" alt="MIT License"></a>
 </p>
 
@@ -35,29 +35,27 @@
 </p>
 
 
-> [!IMPORTANT]
-> **This is a quality-controlled workflow, not a one-click image dump.** Automated checks verify deterministic file requirements; they cannot prove that a sticker has correct anatomy, identity, proportions, semantics, or Chinese text. Always perform the documented per-image visual review and follow the latest official WeChat requirements.
+> [!NOTE]
+> There is no Pet Sticker Compliance Committee here. Scripts count pixels, frames, and file sizes; you answer the only two important questions: **Is that still my pet? Is it funny enough?**
 
 <a id="overview"></a>
 ## Overview
 
-WeChat Pet Sticker Designer closes the full **design → generation → review → optimization → normalization → packaging** loop for both static and animated GIF pet stickers. It keeps a real pet or approved character reference as the identity anchor, breaks an album into independent assets, generates in small batches, and blocks anatomy, transparency, typography, and timeline defects before release.
+PetSticker does one delightful job: it turns your pet's signature faces, suspicious side-eyes, and completely unnecessary little movements into stickers you can actually use in chat. It makes static PNGs and animated GIFs, while keeping an eye on mood-killers such as a surprise fifth leg, wandering captions, fake transparency, or a cat that changes identity halfway through the album.
 
-| Goal | Method | Result |
+| What you want | How the skill helps | What you get |
 | --- | --- | --- |
-| Preserve the pet's identity | Lock facial structure, markings, body proportions, tail, collar, and name tag in a character bible | A recognizable character across every scene |
-| Prevent structural defects | Review limb/tail counts, attachment points, props, crops, and pose semantics at source resolution | No extra legs, duplicate tails, fused parts, or impossible actions |
-| Keep small stickers readable | Use short Chinese captions or universal symbols only when they improve meaning; typeset deterministically when generation is unreliable | Accurate, legible captions without random glyphs |
-| Guarantee real transparency | Inspect the alpha channel on colored backgrounds instead of accepting checkerboards or white rectangles | Clean PNG assets without fake transparency or halos |
-| Keep animation natural | Generate semantic action drawings directly, then inspect timing, loops, transitions, and the static text lock | The pet and necessary props move while text and canvas stay fixed, without interpolation distortion |
-| Deliver platform-ready files | Validate count, dimensions, format, opacity, naming, manifests, and QA documents | An auditable release directory ready for final submission review |
-
-The repository contains general instructions, templates, validation tools, and this explicitly approved, cropped, metadata-stripped input/output case study. It does **not** contain the original input files, additional pet photos, private identity anchors, high-resolution work files, rejected drafts, or a full generated album.
+| Keep it recognizably yours | Remember the face, markings, proportions, tail, collar, and name tag | 24 jokes without accidentally casting 24 different cats |
+| Avoid surprise mutations | Check legs, paws, tails, prop contact, and action logic | No bonus limbs, duplicate tails, or watermelon passing through paws |
+| Keep captions readable and still | Use short copy; typeset separately and lock it when needed | Clear text that does not dance around the GIF |
+| Make the background truly transparent | Inspect alpha and edge colors | No white boxes, green fringe, or pretend checkerboards |
+| Move the pet, not the whole canvas | Generate real action drawings and check timing and loops | The pet performs while the frame stays put |
+| Keep the files tidy | Check counts, dimensions, formats, names, and folders | A neat little album instead of a desktop crime scene |
 
 <a id="input-output-example"></a>
 ## Input → output example: 布鲁 · Workplace
 
-This release-safe case study shows how one approved pet reference becomes a coherent, platform-ready album. The output preserves Bulu's large upright ears, warm gray-brown coat, light athletic proportions, and expressive face while expanding the character into distinct workplace scenarios.
+Meet Bulu. One photo is enough to remember those huge upright ears, warm gray-brown coat, light build, and expressive face—then send the poor cat into a complete set of office adventures.
 
 ### Input reference
 
@@ -65,9 +63,9 @@ This release-safe case study shows how one approved pet reference becomes a cohe
   <img src="docs/showcase/workplace/input-reference.jpg" width="280" alt="Cropped input reference photo of Bulu the cat">
 </p>
 
-<p align="center"><sub>Cropped to the pet, resized for the README, and stripped of the original file metadata.</sub></p>
+<p align="center"><sub>Bulu, moments before learning that the cat now has an office job.</sub></p>
 
-<p align="center"><strong>↓ Character bible → Asset plan → Small-batch generation → Three QA gates ↓</strong></p>
+<p align="center"><strong>↓ Meet the cat → Plan the jokes → Draw small batches → Spot the weird bits ↓</strong></p>
 
 ### Output sticker selection
 
@@ -75,7 +73,7 @@ This release-safe case study shows how one approved pet reference becomes a cohe
 | --- | --- |
 | ![Clock-in, computer-crash, slacking, and done stickers](docs/showcase/workplace/output-workday.png) | ![Guidance, overload, Happy Friday, and promotion stickers](docs/showcase/workplace/output-milestones.png) |
 
-<p align="center"><sub>Eight representative transparent stickers selected from the complete 24-sticker album.</sub></p>
+<p align="center"><sub>Eight picks from the 24-sticker album. The others are busy pretending to work.</sub></p>
 
 ### Companion detail banner
 
@@ -83,12 +81,12 @@ This release-safe case study shows how one approved pet reference becomes a cohe
   <img src="docs/showcase/workplace/detail-banner.jpg" width="750" alt="Bulu the cat at a bright office desk beside a laptop">
 </p>
 
-Only the cropped, metadata-stripped input reference and approved final artwork are shown. The original files, EXIF data, other references, private identity anchors, work files, and rejected drafts remain outside the repository.
+Yes, the cat is working harder than we are.
 
 <a id="animated-showcase"></a>
 ## Animated showcase: 布鲁 · Chinese internet reactions
 
-These GIFs were produced with this skill and passed the documented review. Each is 240×240, contains 12 directly generated action drawings, loops in exactly 2.00 seconds, uses real transparency, and stays below 500 KB. No RIFE, optical-flow interpolation, or whole-sticker shaking was used; the handwritten text layer remains pixel-fixed across every frame.
+The cat performs; the caption stays put. These four GIFs were made with this skill: 240×240, 12 directly generated action drawings, a complete 2.00-second loop, real transparency, and less than 500 KB each. No RIFE, no optical-flow interpolation, and no cheating by shaking the entire sticker.
 
 <table>
   <tr>
@@ -101,42 +99,42 @@ These GIFs were produced with this skill and passed the documented review. Each 
   </tr>
 </table>
 
-See [`references/animated-stickers.md`](references/animated-stickers.md) for semantic frame planning, direct action-frame generation, static text locking, transparency repair, GIF timeline validation, and problem-specific optimization.
+Curious how the cat actually gets moving? [`references/animated-stickers.md`](references/animated-stickers.md) covers action planning, direct frame generation, caption locking, transparency cleanup, GIF timing, and repairs.
 
 <a id="workflow"></a>
-## Workflow
+## How the cat gets into your chat
 
 ```text
-[Pet reference]
+[One good pet photo]
       |
       v
-[Character bible] -> [Asset plan] -> [Small-batch generation]
-                                              |
-                                              v
-                                      [Three QA gates]
-                                         |        |
-                                       fail      pass
-                                         |        |
-                                         v        v
-                                  [Repair asset] [Validate + release]
-                                         |
-                                         +------> back to QA
+[Tiny character guide] -> [24 jokes + actions] -> [Draw small batches]
+                                                     |
+                                                     v
+                                                [Spot checks]
+                                                |           |
+                                              whoops       nice!
+                                                |           |
+                                                v           v
+                                        [Fix just this one] [Pack it up]
+                                                |
+                                                +------> one more look
 ```
 
-The three blocking gates are:
+The spot-checking happens in three quick rounds:
 
-| Gate | What is checked | Blocking failures |
+| Round | What to look at | Send it back when |
 | --- | --- | --- |
-| **1. Identity and body** | Face, markings, eyes, ears, chest/abdomen thickness, head-to-body ratio, legs, paws, tail, accessories | Character drift, too fat/thin, changed markings, wrong tag or collar |
-| **2. Structure and meaning** | Limb/tail count and attachment, crop boundaries, prop contact, pose, caption, symbol, and distinction across the album | Extra limbs, duplicate tails, fused parts, impossible interaction, wrong text or unclear meaning |
-| **3. File requirements** | Count, pixel size, format, alpha/opacity, size warnings, naming, directory layout, manifest and QA files | Missing files, wrong dimensions, fake transparency, invalid JSON, incorrect naming |
+| **1. Is that still your pet?** | Face, markings, eyes, ears, proportions, paws, tail, and accessories | The pet changes identity, size, markings, collar, or tag |
+| **2. Did anything mutate?** | Limb and tail count, crops, prop contact, pose, caption, and variety | Extra limbs, duplicate tails, fused parts, impossible actions, or confusing text |
+| **3. Are the files behaving?** | Count, dimensions, format, transparency, size, naming, folders, and manifests | Something is missing, mis-sized, fake-transparent, or incorrectly named |
 
-Any failure returns only that asset to repair, followed by all three gates again. Passing the script never replaces visual review.
+Fix the odd sticker, not the entire cat family. Scripts can count and inspect files, but humans still decide whether it looks right and lands the joke.
 
 <a id="deliverables"></a>
-## Deliverables
+## What's in the cat bundle?
 
-A default complete static album contains:
+A complete static album normally includes:
 
 | Asset | Default count | Notes |
 | --- | ---: | --- |
@@ -147,16 +145,16 @@ A default complete static album contains:
 | Chat icon | 1 | Transparent 50 × 50 PNG |
 | Tipping prompt | Optional 1 | 750 × 560 image |
 | Tipping thanks | Optional 1 | 750 × 750 image |
-| Manifest, character bible, QA report | 3 | Audit trail for generation and delivery |
+| Manifest, tiny character guide, check report | 3 | So future-you can find and repair things without losing nine lives |
 
 The default release structure is:
 
 ```text
 project/
-├── references_private/        # Original pet photos; excluded from shared releases
-├── work/                      # High-resolution sources, drafts and repairs
+├── references_private/        # Reference photos: the actual star
+├── work/                      # Drafts, working art, and repair zone
 └── release/
-    ├── stickers/              # 01_*.png … 24_*.png
+    ├── stickers/              # 01_*.png … 24_*.png, ready to make an entrance
     ├── assets/
     │   ├── character_avatar.png
     │   ├── detail_banner.jpg
@@ -170,7 +168,7 @@ project/
 ```
 
 <a id="quick-start"></a>
-## Quick start
+## Three-step setup
 
 ### 1. Clone the skill
 
@@ -179,7 +177,7 @@ git clone https://github.com/rudykon/PetSticker.git
 cd PetSticker
 ```
 
-Load or copy the whole repository as one skill in a Skills-compatible ChatGPT/Codex environment. Keep `SKILL.md`, `agents/`, `assets/`, `references/`, and `scripts/` together.
+Load or copy the whole repository as one skill in a Skills-compatible ChatGPT/Codex environment. Keep `SKILL.md`, `agents/`, `assets/`, `references/`, and `scripts/` together—do not scatter the cat's toolbox.
 
 ### 2. Install the validator dependency
 
@@ -202,12 +200,12 @@ proportions and name tag, use real transparency, and review every asset for
 extra limbs, duplicate tails, incorrect Chinese text, and style drift.
 ```
 
-The skill asks a question only when a missing choice would materially change the result. Otherwise it establishes the character bible, plans the complete asset list, and begins with a small reviewable batch.
+Unless a missing choice would genuinely change the result, the skill meets your pet, plans the full set, and starts with a small batch. Check the vibe first; launch the cat's full reaction career second.
 
 <a id="validation"></a>
-## Validation
+## Let scripts count; do not let them judge the cat
 
-Validate a complete album with tipping assets and required QA documents:
+Dimensions, counts, frames, and filenames get boring fast. Hand those jobs to the script:
 
 ```bash
 python3 scripts/validate_album.py /absolute/path/to/project/release \
@@ -216,7 +214,7 @@ python3 scripts/validate_album.py /absolute/path/to/project/release \
   --require-qa-docs
 ```
 
-Create a numbered contact sheet for manual review:
+Then line up all 24 stickers on one page and spot the one whose cat identity wandered off:
 
 ```bash
 python3 scripts/make_contact_sheet.py \
@@ -224,7 +222,7 @@ python3 scripts/make_contact_sheet.py \
   /absolute/path/to/qa_overview.png
 ```
 
-For machine-readable validation output, add `--json`. For dynamic albums, also validate frame count, timing, looping, and per-frame transparency, then build an all-frame QA sheet:
+Add `--json` for machine-readable output. GIF albums can also check frame count, speed, complete looping, and per-frame transparency:
 
 ```bash
 python3 scripts/validate_album.py /absolute/path/to/project/release \
@@ -239,30 +237,22 @@ python3 scripts/make_animation_sheet.py \
 ```
 
 <a id="repository-map"></a>
-## Repository map
+## Want to poke around? Here's the map
 
 | Path | Purpose |
 | --- | --- |
-| [`SKILL.md`](SKILL.md) | Main workflow, review gates, delivery rules, and stop conditions |
+| [`SKILL.md`](SKILL.md) | The main pet-to-sticker recipe and its important rules |
 | [`agents/openai.yaml`](agents/openai.yaml) | Skill display name, default prompt, product policy, and icon mapping |
 | [`references/wechat-assets.md`](references/wechat-assets.md) | WeChat asset dimensions, formats, transparency, and size guidance |
 | [`references/character-and-prompts.md`](references/character-and-prompts.md) | Character bible, prompting, Chinese typography, and repair strategy |
 | [`references/animated-stickers.md`](references/animated-stickers.md) | Semantic frame planning, direct generation, transparency repair, animation QA, and optimization |
-| [`references/qa-and-delivery.md`](references/qa-and-delivery.md) | Manual review checklist, exception handling, and delivery protocol |
+| [`references/qa-and-delivery.md`](references/qa-and-delivery.md) | Final spot-checking, repair, and tidy-up guidance |
 | [`assets/`](assets) | Character bible, manifest, QA report templates, and skill icon |
 | [`scripts/validate_album.py`](scripts/validate_album.py) | Deterministic album and image-file validation |
 | [`scripts/make_contact_sheet.py`](scripts/make_contact_sheet.py) | Numbered visual overview generation |
 | [`scripts/make_animation_sheet.py`](scripts/make_animation_sheet.py) | Row-by-row, frame-by-frame animated QA sheet generation |
 
-## Privacy and responsible use
-
-- Original pet photos are private references by default and must not be added to public release packages without explicit permission.
-- High-resolution work files and rejected generations remain separate from the final release.
-- Generated captions must be checked character by character; visual similarity is not sufficient.
-- WeChat rules can change. When a current official document conflicts with this repository, the official document takes precedence.
-- Do not claim that automated validation proves the absence of anatomy, identity, semantic, or typography defects.
-
 <a id="license"></a>
 ## License
 
-Repository-authored instructions, templates, and scripts are released under the [MIT License](LICENSE). Pet photos, generated sticker artwork, trademarks, platform specifications, fonts, and third-party materials may have separate rights and terms.
+The original instructions, templates, and scripts use the [MIT License](LICENSE). Pet photos, finished sticker art, fonts, and third-party materials follow their own terms. In short: **the code is here to play with; everybody keeps their own cat.**
