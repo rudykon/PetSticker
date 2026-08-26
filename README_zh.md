@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <img src="docs/brand-mark.svg" width="430" alt="PetSticker — 微信宠物表情包设计品牌标识">
+  <img src="docs/brand/logo-horizontal.png" width="920" alt="布鲁猫与终端窗口横版 Logo">
 </p>
 
 <h1 align="center">微信宠物表情包设计</h1>
@@ -79,6 +79,14 @@ PetSticker 的方法和脚本不绑定 ChatGPT 或 Codex。只要 AI 助手能�
 </p>
 
 <p align="center"><sub>主角登场：布鲁，一只还不知道自己马上要上班的猫。</sub></p>
+
+### 🧬 角色一致性锚点
+
+<p align="center">
+  <img src="docs/showcase/workplace/character-anchor.png" width="250" alt="布鲁猫确认后的插画角色锚点">
+</p>
+
+<p align="center"><sub>先锁定脸型、大耳朵、琥珀色眼睛、轻巧体型、项圈和“布鲁”名牌，再把同一只猫扩展到 24 个梗。</sub></p>
 
 <p align="center"><strong>↓ 认识这只猫 → 想好梗 → 分批出图 → 大家一起找茬 ↓</strong></p>
 
@@ -268,6 +276,7 @@ python3 scripts/make_animation_sheet.py \
 | [`references/character-and-prompts.md`](references/character-and-prompts.md) | 角色圣经、提示词、中文排字和返修策略 |
 | [`references/animated-stickers.md`](references/animated-stickers.md) | 动图语义拆帧、直接生成、透明处理、检查和优化方法 |
 | [`references/qa-and-delivery.md`](references/qa-and-delivery.md) | 最后一轮找茬、返修和整理方法 |
+| [`docs/brand/`](docs/brand) | 横版、竖版、图标与 favicon 品牌素材 |
 | [`assets/`](assets) | 角色圣经、清单、QA 报告模板和 Skill 图标 |
 | [`scripts/validate_album.py`](scripts/validate_album.py) | 专辑结构与图片文件的确定性校验 |
 | [`scripts/make_contact_sheet.py`](scripts/make_contact_sheet.py) | 生成带编号的视觉总览图 |

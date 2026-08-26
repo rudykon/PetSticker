@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <img src="docs/brand-mark.svg" width="430" alt="PetSticker — WeChat Pet Sticker Designer brand mark">
+  <img src="docs/brand/logo-horizontal.png" width="920" alt="Bulu cat and terminal horizontal logo">
 </p>
 
 <h1 align="center">WeChat Pet Sticker Designer</h1>
@@ -79,6 +79,14 @@ Meet Bulu. One photo is enough to remember those huge upright ears, warm gray-br
 </p>
 
 <p align="center"><sub>Bulu, moments before learning that the cat now has an office job.</sub></p>
+
+### 🧬 Character identity anchor
+
+<p align="center">
+  <img src="docs/showcase/workplace/character-anchor.png" width="250" alt="Approved illustrated character anchor for Bulu the cat">
+</p>
+
+<p align="center"><sub>Before scaling to 24 jokes, lock the face, upright ears, amber eyes, slim proportions, collar, and “布鲁” name tag.</sub></p>
 
 <p align="center"><strong>↓ Meet the cat → Plan the jokes → Draw small batches → Spot the weird bits ↓</strong></p>
 
@@ -269,6 +277,7 @@ python3 scripts/make_animation_sheet.py \
 | [`references/character-and-prompts.md`](references/character-and-prompts.md) | Character bible, prompting, Chinese typography, and repair strategy |
 | [`references/animated-stickers.md`](references/animated-stickers.md) | Semantic frame planning, direct generation, transparency repair, animation QA, and optimization |
 | [`references/qa-and-delivery.md`](references/qa-and-delivery.md) | Final spot-checking, repair, and tidy-up guidance |
+| [`docs/brand/`](docs/brand) | Horizontal, stacked, icon, and favicon brand assets |
 | [`assets/`](assets) | Character bible, manifest, QA report templates, and skill icon |
 | [`scripts/validate_album.py`](scripts/validate_album.py) | Deterministic album and image-file validation |
 | [`scripts/make_contact_sheet.py`](scripts/make_contact_sheet.py) | Numbered visual overview generation |
