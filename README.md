@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <img src="docs/brand/logo-horizontal.png" width="920" alt="Bulu cat and terminal horizontal logo">
+  <img src="docs/brand/logo-horizontal.svg" width="920" alt="Abyssinian cat and PetSticker horizontal logo">
 </p>
 
 <h1 align="center">WeChat Pet Sticker Designer</h1>

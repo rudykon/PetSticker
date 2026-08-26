@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <img src="docs/brand/logo-horizontal.png" width="920" alt="布鲁猫与终端窗口横版 Logo">
+  <img src="docs/brand/logo-horizontal.svg" width="920" alt="阿比西尼亚猫与 PetSticker 横版 Logo">
 </p>
 
 <h1 align="center">微信宠物表情包设计</h1>
